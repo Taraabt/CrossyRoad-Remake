@@ -22,17 +22,20 @@ public class MapGenerator : MonoBehaviour{
     }
 
     public void CreateGroundObstacle(Vector3 position){
-        for (int i = -5; i < 5; i++){
-            List.Add(i);
+        for (int i = -4; i < 5; i++){
+                List.Add(i);
         }
+        List.Remove(0);
         for (int i = 0;i < maxObstacle; i++){
             int r = Random.Range(0, List.Count);
-            Vector3 pos = new Vector3(List[r], 0f, position.z);
-            List.Remove(r-5);
-            for (int j =0; j < List.Count; j++){
-                Debug.Log(List[j]);
+            if(r == 4) {
+                List.Remove(r-4);
+                i--;
+            }else{
+                Vector3 pos = new Vector3(List[r] - 0.5f, 0f, position.z);
+                List.Remove(r - 4);
+                Instantiate(obstacle[Random.Range(0, 5)], pos, Quaternion.identity);
             }
-            Instantiate(obstacle[Random.Range(0, 5)], pos, Quaternion.identity);
         }
         List.Clear();
     }
@@ -50,6 +53,5 @@ public class MapGenerator : MonoBehaviour{
             maxPos++;
         }
     }
-
 
 }
