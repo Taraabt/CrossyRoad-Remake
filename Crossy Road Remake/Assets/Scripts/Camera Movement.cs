@@ -10,16 +10,17 @@ public class CameraMovement : MonoBehaviour{
 
     private void Update(){
         GameObject player = GameObject.Find("Chicken");
-        //transform.Translate(Vector3.forward * Time.deltaTime * Params.Instance.CameraSpeed ,Space.World);
-        if(transform.position.z-3>player.transform.position.z){
+        if(transform.position.z-Params.Instance.DstncB4Die>player.transform.position.z){
                 PlayerDeath();
-        }else{
+        }else if(player.transform.position.z>=transform.position.z+Params.Instance.DstncB4FllwPlayer){
+            transform.Translate(player.transform.position * Time.deltaTime * Params.Instance.FollowPlayerSpeed, Space.World);
+        }
+        else{
             transform.Translate(Vector3.forward * Time.deltaTime * Params.Instance.CameraSpeed, Space.World);
         }
         /*quando player si muove la camera lo segue se e di x piu avanti 
          * se telecamera e piu avanti di x al player player muore
         */
-
     }
 
     void OnEnable(){
