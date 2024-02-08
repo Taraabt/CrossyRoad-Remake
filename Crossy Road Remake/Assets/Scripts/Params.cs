@@ -14,10 +14,13 @@ public class Params : MonoBehaviour{
         }
     }
 
-    [Header ("Player")]
-    [SerializeField] float speed;
-    public float Speed{get{ return speed;}}
+    [Header ("Map")]
+    [SerializeField] int obstacleNumber;
+    public int ObstacleNumber { get { return obstacleNumber; } }
 
+    [Header ("Camera")]
+    [SerializeField] float cameraSpeed;
+    public float CameraSpeed { get { return cameraSpeed; } }
 
 
 }

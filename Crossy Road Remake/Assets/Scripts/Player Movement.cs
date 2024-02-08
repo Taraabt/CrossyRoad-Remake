@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
-    private float speed;
     private bool w,a,s,d;
     private bool w1,a1,s1,d1;
-    private bool hitsome;
+    private bool hitsome,isDead;
+
+    private void Start(){
+        isDead = false;
+    }
 
     void Update(){
         RaycastHit hit;
@@ -20,48 +23,61 @@ public class PlayerMovement : MonoBehaviour{
         d1 = Input.GetKeyDown(KeyCode.D);
         a1 = Input.GetKeyDown(KeyCode.A);
 
-        if (w){
+        Vector3 rayCastPos = new Vector3(transform.position.x, transform.position.y +0.5f, transform.position.z);
+
+        if (w && isDead==false){
             transform.forward = Vector3.forward;
-            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
             }
         }
-        if (s){
+        if (s && isDead == false){
             transform.forward = Vector3.back;
-            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
             }
         }
-        if (d){
+        if (d && isDead == false){
             transform.forward = Vector3.right;
-            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
             }
         }
-        if (a){
+        if (a && isDead == false){
             transform.forward = Vector3.left;
-            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
             }
         }
 
-        if (w1){
+        if (w1 && isDead == false){
             transform.forward=Vector3.forward;
         }
-        if (s1){
+        if (s1 && isDead == false){
             transform.forward = Vector3.back;
         }
-        if (d1){
+        if (d1 && isDead == false){
             transform.forward= Vector3.right;
         }
-        if (a1){
+        if (a && isDead == false){
             transform.forward= Vector3.left;
         }
     }
-    
+    void OnEnable(){
+        CameraMovement.PlayerDeath += StopMovement;
+    }
+
+    void OnDisable(){
+        CameraMovement.PlayerDeath -= StopMovement;
+    }
+
+    public void StopMovement(){
+        isDead = true;
+    }
+
 
 }
