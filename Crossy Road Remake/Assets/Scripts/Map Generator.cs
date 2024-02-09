@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MapGenerator : MonoBehaviour{
 
@@ -20,6 +21,18 @@ public class MapGenerator : MonoBehaviour{
        }else if (random == 1){
             //CreateLog()
        }
+    }
+    
+    void CreateRiverObstacle(Vector3 position){
+        for (int i = 0; i < Params.Instance.ObstacleNumber; i++)
+        {
+            int rIndex = Random.Range(0, List.Count);
+            int rNumber = List[rIndex];
+            Debug.Log(rNumber);
+            Vector3 pos = new Vector3(rNumber - 0.5f, 0f, position.z);
+            List.Remove(rNumber);
+            Instantiate(obstacle[Random.Range(0, 5)], pos, Quaternion.identity);
+        }
     }
 
     public void CreateGroundObstacle(Vector3 position){
