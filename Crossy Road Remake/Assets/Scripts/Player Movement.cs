@@ -6,14 +6,19 @@ public class PlayerMovement : MonoBehaviour{
     private bool w,a,s,d;
     private bool w1,a1,s1,d1;
     private bool hitsome,isDead;
-
+    [SerializeField]Material material;
     private void Start(){
         isDead = false;
     }
 
     void Update(){
         RaycastHit hit;
-        
+
+
+
+        //Color customColor = new Color(1f, 1f, 1f, 0f);
+        //material.SetColor("_Color", customColor);
+
         w =Input.GetKeyUp(KeyCode.W);
         s = Input.GetKeyUp(KeyCode.S);
         d = Input.GetKeyUp(KeyCode.D);
@@ -79,5 +84,5 @@ public class PlayerMovement : MonoBehaviour{
         isDead = true;
     }
 
-
+     
 }
