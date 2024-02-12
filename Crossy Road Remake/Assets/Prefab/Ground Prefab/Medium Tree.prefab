@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2620843327734869525}
   - component: {fileID: 5082394719911686232}
   - component: {fileID: 3202977122105423717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7360323220558025566}
   - component: {fileID: 7409537964107218335}
   - component: {fileID: 1332425802626710087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leaves (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849272390107490809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Medium Tree
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 2933324734763911058}
   - component: {fileID: 2042431682887064651}
   - component: {fileID: 6544024075442688806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}

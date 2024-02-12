@@ -32,28 +32,28 @@ public class PlayerMovement : MonoBehaviour{
 
         if (w && isDead==false){
             transform.forward = Vector3.forward;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
             }
         }
         if (s && isDead == false){
             transform.forward = Vector3.back;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
             }
         }
         if (d && isDead == false){
             transform.forward = Vector3.right;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
             }
         }
         if (a && isDead == false){
             transform.forward = Vector3.left;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f);
+            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
             }
@@ -73,11 +73,13 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
     void OnEnable(){
-        CameraMovement.PlayerDeath += StopMovement;
+        CameraMovement.CameraDeath += StopMovement;
+        MoveObject.VeichleDeath += StopMovement;
     }
 
     void OnDisable(){
-        CameraMovement.PlayerDeath -= StopMovement;
+        CameraMovement.CameraDeath -= StopMovement;
+        MoveObject.VeichleDeath -= StopMovement;
     }
 
     public void StopMovement(){

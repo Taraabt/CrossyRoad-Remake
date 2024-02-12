@@ -5,13 +5,14 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour{
 
     public delegate void Death();
-    public static event Death PlayerDeath;
+    public static event Death CameraDeath;
     public Canvas PauseMenu;
 
     private void Update(){
         GameObject player = GameObject.Find("Chicken");
         if(transform.position.z-Params.Instance.DstncB4Die>player.transform.position.z){
-                PlayerDeath();
+                CameraDeath();
+
         }else if(player.transform.position.z>=transform.position.z+Params.Instance.DstncB4FllwPlayer){
             transform.Translate(player.transform.position * Time.deltaTime * Params.Instance.FollowPlayerSpeed, Space.World);
         }
@@ -24,11 +25,13 @@ public class CameraMovement : MonoBehaviour{
     }
 
     void OnEnable(){
-        CameraMovement.PlayerDeath += KillPlayer;
+        CameraDeath += KillPlayer;
+        MoveObject.VeichleDeath += KillPlayer;
     }
 
     void OnDisable(){
-        CameraMovement.PlayerDeath -= KillPlayer;
+        CameraDeath -= KillPlayer;
+        MoveObject.VeichleDeath -= KillPlayer;
     }
 
     void KillPlayer(){

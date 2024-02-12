@@ -32,5 +32,9 @@ public class Params : MonoBehaviour{
     [SerializeField] float dstncB4FllwPlayer;
     public float DstncB4FllwPlayer { get { return dstncB4FllwPlayer; } }
 
+    [Header("Car")]
+    [SerializeField] float carSpeed;
+    public float CarSpeed { get { return carSpeed; } }
+
 
 }
