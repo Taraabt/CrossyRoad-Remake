@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour{
 
+    public Canvas PauseMenu;
     public delegate void Death();
     public static event Death VeichleDeath;
 
