@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour{
     private bool w,a,s,d;
     private bool w1,a1,s1,d1;
     private bool hitsome,isDead;
-    [SerializeField]Material material;
+    //[SerializeField]Material material;
     private void Start(){
         isDead = false;
     }
@@ -75,9 +75,11 @@ public class PlayerMovement : MonoBehaviour{
     void OnEnable(){
         CameraMovement.CameraDeath += StopMovement;
         MoveObject.VeichleDeath += StopMovement;
+        River.RiverDeath += StopMovement;
     }
 
     void OnDisable(){
+        River.RiverDeath -= StopMovement;
         CameraMovement.CameraDeath -= StopMovement;
         MoveObject.VeichleDeath -= StopMovement;
     }
