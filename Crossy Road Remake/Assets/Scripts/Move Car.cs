@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObject : MonoBehaviour{
+public class MoveCar : MonoBehaviour{
 
-    public Canvas PauseMenu;
     public delegate void Death();
     public static event Death VeichleDeath;
 

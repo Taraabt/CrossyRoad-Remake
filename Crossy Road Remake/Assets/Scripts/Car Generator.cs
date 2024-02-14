@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarGenerator : MonoBehaviour{
+
     [SerializeField] GameObject[] car;
     float remainingTime=0f;
     int random;
+
     void Start(){
         random = Random.Range(0, car.Length);
     }

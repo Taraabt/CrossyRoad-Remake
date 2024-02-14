@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleNumber: 3
-  cameraSpeed: 1.5
+  cameraSpeed: 1
   followPlayerSpeed: 0.5
   dstncB4Die: 3
   dstncB4FllwPlayer: 5
@@ -753,6 +753,8 @@ MonoBehaviour:
   objGenerator:
   - {fileID: 4821053694255967558, guid: 5d100206cd3b84642bb7264562edadae, type: 3}
   - {fileID: 6864464928919243739, guid: 7329406938ef425469dbb9263e0affe2, type: 3}
+  - {fileID: 5059897377018571042, guid: 47fd95914986c5c4d8c345adc9fa3715, type: 3}
+  - {fileID: 6348732283610715415, guid: d39fbfa7aa7ae2a4bba069f5a297130b, type: 3}
 --- !u!4 &886082294
 Transform:
   m_ObjectHideFlags: 0
@@ -858,7 +860,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9, y: 1, z: 0.9}
+  m_Size: {x: 0.9, y: 1.2, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &919903674
 MeshRenderer:

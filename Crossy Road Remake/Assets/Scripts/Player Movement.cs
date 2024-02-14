@@ -74,14 +74,14 @@ public class PlayerMovement : MonoBehaviour{
     }
     void OnEnable(){
         CameraMovement.CameraDeath += StopMovement;
-        MoveObject.VeichleDeath += StopMovement;
+        MoveCar.VeichleDeath += StopMovement;
         River.RiverDeath += StopMovement;
     }
 
     void OnDisable(){
         River.RiverDeath -= StopMovement;
         CameraMovement.CameraDeath -= StopMovement;
-        MoveObject.VeichleDeath -= StopMovement;
+        MoveCar.VeichleDeath -= StopMovement;
     }
 
     public void StopMovement(){

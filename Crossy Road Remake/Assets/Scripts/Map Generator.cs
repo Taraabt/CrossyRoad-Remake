@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MapGenerator : MonoBehaviour{
 
@@ -11,17 +14,52 @@ public class MapGenerator : MonoBehaviour{
     float startingLine=5.5f;
     List<int> List = new List<int>();
 
+    private string filePath;
+    private int mapIndex = 0;
+    int[] map =new int[19];
+
+
+    public void ReadFile(){
+        string fileContent="";
+        filePath = Path.Combine(Application.dataPath, "map.txt");
+        if (File.Exists(filePath)){
+            fileContent = File.ReadAllText(filePath);
+        }else{
+            Debug.LogError("Il file non esiste: " + filePath);
+        }
+        string[] map=fileContent.Split('\r');
+        for (int i = 0; i < this.map.Length; i++){
+            this.map[i] = int.Parse(map[i]);
+            Debug.Log(map.Length);
+        }
+    }
+
     public void CreateLine(float i){
-        int random = Random.Range(0, ground.Length);
-        Vector3 newLine = new Vector3(0f, 0f, ground[random].transform.position.z + i);
-        GameObject Instance=Instantiate(ground[random], newLine, Quaternion.identity);
-        if (random == 0){
+        if (mapIndex == map.Length){
+            mapIndex = 0;
+        }
+        Vector3 newLine = new Vector3(0f, ground[map[mapIndex]].transform.position.y , ground[map[mapIndex]].transform.position.z + i);
+        GameObject Instance=Instantiate(ground[map[mapIndex]], newLine, Quaternion.identity);
+        if (map[mapIndex] == 0){
             CreateGroundObstacle(Instance.transform.position);
-       }else if (random == 2){
+       }else if (map[mapIndex] == 2){
             CreateCar(Instance.transform.position);
+       }else if(map[mapIndex] == 1){
+            CreateLog(Instance.transform.position);
        }
+        mapIndex++;
     }
     
+    void CreateLog(Vector3 pos){
+        int random = Random.Range(2, 4);
+        if (random == 2){
+            Vector3 spawner1 = new Vector3(pos.x - 5.5f, 0f, pos.z);
+            Instantiate(objGenerator[random], spawner1, Quaternion.identity);
+        }else{
+            Vector3 spawner2 = new Vector3(pos.x + 5.5f, 0f, pos.z);
+            Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f, 180f, 0f);
+        }
+    }
     void CreateCar(Vector3 position){
         int random=Random.Range(0, 2);
         if (random == 0){
@@ -49,6 +87,7 @@ public class MapGenerator : MonoBehaviour{
     }
 
     void Start(){
+        ReadFile();
         for (float i=startingLine ; i < maxPos; i++) {
             CreateLine(i);
         }

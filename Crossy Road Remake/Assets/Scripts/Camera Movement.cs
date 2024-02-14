@@ -25,13 +25,13 @@ public class CameraMovement : MonoBehaviour{
     void OnEnable(){
         CameraDeath += KillPlayer;
         River.RiverDeath += KillPlayer;
-        MoveObject.VeichleDeath += KillPlayer;
+        MoveCar.VeichleDeath += KillPlayer;
     }
 
     void OnDisable(){
         CameraDeath -= KillPlayer;
         River.RiverDeath -= KillPlayer;
-        MoveObject.VeichleDeath -= KillPlayer;
+        MoveCar.VeichleDeath -= KillPlayer;
     }
 
     void KillPlayer(){

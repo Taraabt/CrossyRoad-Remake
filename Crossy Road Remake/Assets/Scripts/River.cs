@@ -14,7 +14,6 @@ public class River : MonoBehaviour{
     void OnEnable(){
         CameraMovement.CameraDeath += KillPlayer;
         RiverDeath += KillPlayer;
-
     }
 
     void OnDisable(){

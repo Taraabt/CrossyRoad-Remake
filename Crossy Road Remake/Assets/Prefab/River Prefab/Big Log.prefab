@@ -324,6 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7732687589934571478}
+  - component: {fileID: -6531980511473904190}
   m_Layer: 0
   m_Name: Big Log
   m_TagString: Untagged
@@ -349,3 +350,15 @@ Transform:
   - {fileID: 3828196941654207442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6531980511473904190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415827729498415131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a580705747c2544b1f03627d6a5bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

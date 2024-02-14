@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7342246690704287216}
   - component: {fileID: 7255881126098792695}
   - component: {fileID: 1983247673182045760}
-  - component: {fileID: 1006538124866569821}
+  - component: {fileID: 7784599085745578653}
   m_Layer: 0
   m_Name: River Ground
   m_TagString: Untagged
@@ -115,12 +115,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4484486963940499132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58152e3a2f742e4438433c1790aa2b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1006538124866569821
+--- !u!65 &7784599085745578653
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,5 +139,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 0.04656201, z: 10}
+  m_Center: {x: 0, y: -0.023281004, z: 0}
