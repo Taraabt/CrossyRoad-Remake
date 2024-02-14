@@ -388,6 +388,8 @@ MonoBehaviour:
   dstncB4Die: 3
   dstncB4FllwPlayer: 5
   carSpeed: 1
+  trainSpeed: 2
+  logSpeed: 1.5
 --- !u!4 &272107916
 Transform:
   m_ObjectHideFlags: 0
@@ -755,6 +757,8 @@ MonoBehaviour:
   - {fileID: 6864464928919243739, guid: 7329406938ef425469dbb9263e0affe2, type: 3}
   - {fileID: 5059897377018571042, guid: 47fd95914986c5c4d8c345adc9fa3715, type: 3}
   - {fileID: 6348732283610715415, guid: d39fbfa7aa7ae2a4bba069f5a297130b, type: 3}
+  - {fileID: 4362603843709051363, guid: 36d2b760dd7bdad458a502a3a7510e7c, type: 3}
+  - {fileID: 4103894417692614153, guid: 11e813c1137710c419f393a16d912c1b, type: 3}
 --- !u!4 &886082294
 Transform:
   m_ObjectHideFlags: 0

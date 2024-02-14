@@ -15,7 +15,7 @@ public class MapGenerator : MonoBehaviour{
     List<int> List = new List<int>();
 
     private string filePath;
-    private int mapIndex = 0;
+    private int mapIndex;
     int[] map =new int[19];
 
 
@@ -38,6 +38,7 @@ public class MapGenerator : MonoBehaviour{
         if (mapIndex == map.Length){
             mapIndex = 0;
         }
+        mapIndex=Random.Range(0, map.Length);
         Vector3 newLine = new Vector3(0f, ground[map[mapIndex]].transform.position.y , ground[map[mapIndex]].transform.position.z + i);
         GameObject Instance=Instantiate(ground[map[mapIndex]], newLine, Quaternion.identity);
         if (map[mapIndex] == 0){
@@ -46,10 +47,23 @@ public class MapGenerator : MonoBehaviour{
             CreateCar(Instance.transform.position);
        }else if(map[mapIndex] == 1){
             CreateLog(Instance.transform.position);
-       }
+       }else if (map[mapIndex] == 3){
+            CreateTrain(Instance.transform.position);
+        }
         mapIndex++;
     }
-    
+
+    void CreateTrain(Vector3 pos){
+        int random = Random.Range(4, 6);
+        if (random == 4){
+            Vector3 spawner1 = new Vector3(pos.x - 5.5f, 0f, pos.z);
+            Instantiate(objGenerator[random], spawner1, Quaternion.identity);
+        }else{
+            Vector3 spawner2 = new Vector3(pos.x + 5.5f, 0f, pos.z);
+            Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
     void CreateLog(Vector3 pos){
         int random = Random.Range(2, 4);
         if (random == 2){

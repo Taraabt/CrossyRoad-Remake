@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarGenerator : MonoBehaviour{
 
     [SerializeField] GameObject[] car;
-    float remainingTime=0f;
+    float remainingTime=Time.deltaTime;
     int random;
 
     void Start(){
