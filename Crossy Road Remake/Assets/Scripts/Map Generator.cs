@@ -16,7 +16,7 @@ public class MapGenerator : MonoBehaviour{
 
     private string filePath;
     private int mapIndex;
-    int[] map =new int[19];
+    int[] map =new int[400];
 
 
     public void ReadFile(){
@@ -49,8 +49,14 @@ public class MapGenerator : MonoBehaviour{
             CreateLog(Instance.transform.position);
        }else if (map[mapIndex] == 3){
             CreateTrain(Instance.transform.position);
-        }
+       }else{
+            CreateLilipad();
+       }
         mapIndex++;
+    }
+
+    void CreateLilipad(){
+    
     }
 
     void CreateTrain(Vector3 pos){

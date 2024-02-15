@@ -5,7 +5,7 @@ using UnityEngine;
 public class LogGenerator : MonoBehaviour{
 
     [SerializeField] GameObject[] log;
-    float remainingTime = Time.deltaTime;
+    float remainingTime = 0f;
 
     void Update(){
         int random;

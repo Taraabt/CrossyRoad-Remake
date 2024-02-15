@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrainGenerator : MonoBehaviour{
 
     [SerializeField] GameObject train;
-    float remainingTime = Time.deltaTime;
+    float remainingTime = 0f;// Random.range;
 
     void Update(){
         remainingTime -= Time.deltaTime;
