@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveTrain : MonoBehaviour{
 
     public delegate void Death();
-    public static event Death VeichleDeath;
+    public static event Death TrainDeath;
 
     void Update(){
         transform.Translate(Vector3.right * Time.deltaTime * Params.Instance.TrainSpeed, Space.Self);
@@ -15,16 +15,16 @@ public class MoveTrain : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other){
-        VeichleDeath();
+        TrainDeath();
     }
 
     void OnEnable(){
-        VeichleDeath += KillPlayer;
+        TrainDeath += KillPlayer;
         CameraMovement.CameraDeath += KillPlayer;
     }
 
     void OnDisable(){
-        VeichleDeath -= KillPlayer;
+        TrainDeath -= KillPlayer;
         CameraMovement.CameraDeath -= KillPlayer;
     }
 

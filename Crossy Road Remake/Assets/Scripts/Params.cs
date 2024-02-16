@@ -15,8 +15,6 @@ public class Params : MonoBehaviour{
     }
 
     [Header ("Map")]
-    [SerializeField] int obstacleNumber;
-    public int ObstacleNumber { get { return obstacleNumber; } }
 
     [Header ("Camera")]
     [SerializeField] float cameraSpeed;
@@ -31,10 +29,14 @@ public class Params : MonoBehaviour{
     [Header("Car")]
     [SerializeField] float carSpeed;
     public float CarSpeed { get { return carSpeed; } }
+    [SerializeField] float carTimer;
+    public float CarTimer { get { return carTimer; } }
 
     [Header("Train")]
     [SerializeField] float trainSpeed;
     public float TrainSpeed { get { return trainSpeed; } }
+    [SerializeField] float trainTimer;
+    public float TrainTimer { get { return trainTimer; } }
 
     [Header("River")]
     [SerializeField] float logSpeed;

@@ -10,6 +10,7 @@ public class MapGenerator : MonoBehaviour{
     [SerializeField] GameObject[] ground;
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject[] objGenerator;
+    [SerializeField] GameObject lilipad;
     float maxPos =10.5f;
     float startingLine=5.5f;
     List<int> List = new List<int>();
@@ -38,7 +39,6 @@ public class MapGenerator : MonoBehaviour{
         if (mapIndex == map.Length){
             mapIndex = 0;
         }
-        mapIndex=Random.Range(0, map.Length);
         Vector3 newLine = new Vector3(0f, ground[map[mapIndex]].transform.position.y , ground[map[mapIndex]].transform.position.z + i);
         GameObject Instance=Instantiate(ground[map[mapIndex]], newLine, Quaternion.identity);
         if (map[mapIndex] == 0){
@@ -50,13 +50,25 @@ public class MapGenerator : MonoBehaviour{
        }else if (map[mapIndex] == 3){
             CreateTrain(Instance.transform.position);
        }else{
-            CreateLilipad();
+            CreateLilipad(Instance.transform.position);
        }
         mapIndex++;
     }
 
-    void CreateLilipad(){
-    
+    void CreateLilipad(Vector3 position){
+        int nObstacle = Random.Range(0, 2);
+        for (int i = -4; i < 5; i++){
+            List.Add(i);
+        }
+        List.Remove(0);
+        for (int i = 0; i < nObstacle; i++){
+            int rIndex = Random.Range(0, List.Count);
+            int rNumber = List[rIndex];
+            Vector3 pos = new Vector3(rNumber, -0.1f, position.z);
+            List.Remove(rNumber);
+            Instantiate(lilipad, pos, Quaternion.identity);
+        }
+        List.Clear();
     }
 
     void CreateTrain(Vector3 pos){
@@ -92,11 +104,12 @@ public class MapGenerator : MonoBehaviour{
     }
 
     public void CreateGroundObstacle(Vector3 position){
+        int nObstacle=Random.Range(0,4);
         for (int i = -4; i < 5; i++){
             List.Add(i);
         }
         List.Remove(0);
-        for (int i = 0;i < Params.Instance.ObstacleNumber; i++){
+        for (int i = 0;i < nObstacle; i++){
             int rIndex = Random.Range(0, List.Count);
             int rNumber = List[rIndex];
             Vector3 pos = new Vector3(rNumber, 0f, position.z);
@@ -108,6 +121,8 @@ public class MapGenerator : MonoBehaviour{
 
     void Start(){
         ReadFile();
+        mapIndex = Random.Range(0, map.Length);
+        Debug.Log(mapIndex);
         for (float i=startingLine ; i < maxPos; i++) {
             CreateLine(i);
         }

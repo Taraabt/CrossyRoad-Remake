@@ -76,9 +76,11 @@ public class PlayerMovement : MonoBehaviour{
         CameraMovement.CameraDeath += StopMovement;
         MoveCar.VeichleDeath += StopMovement;
         River.RiverDeath += StopMovement;
+        MoveTrain.TrainDeath += StopMovement;
     }
 
     void OnDisable(){
+        MoveTrain.TrainDeath -= StopMovement;
         River.RiverDeath -= StopMovement;
         CameraMovement.CameraDeath -= StopMovement;
         MoveCar.VeichleDeath -= StopMovement;
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour{
 
     public void StopMovement(){
         isDead = true;
+        //this.gameObject.SetActive(false);
     }
 
      

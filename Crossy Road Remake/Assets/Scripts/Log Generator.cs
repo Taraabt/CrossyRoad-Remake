@@ -14,7 +14,7 @@ public class LogGenerator : MonoBehaviour{
             Vector3 pos= new Vector3 (transform.position.x, transform.position.y , transform.position.z);
             random = Random.Range(0, log.Length);
             GameObject c;
-            remainingTime = 4f;
+            remainingTime = Params.Instance.LogTimer;
             c = Instantiate(log[random], pos, Quaternion.identity);
             c.transform.right = transform.right;
         }

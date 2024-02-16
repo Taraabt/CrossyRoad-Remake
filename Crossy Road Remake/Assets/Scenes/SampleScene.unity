@@ -382,15 +382,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff014091adcd8174f9b08c495fe6f98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleNumber: 3
   cameraSpeed: 1
   followPlayerSpeed: 0.5
   dstncB4Die: 3
   dstncB4FllwPlayer: 5
   carSpeed: 1
+  carTimer: 5
   trainSpeed: 2
+  trainTimer: 10
   logSpeed: 1.5
-  logTimer: 0
+  logTimer: 3
 --- !u!4 &272107916
 Transform:
   m_ObjectHideFlags: 0
@@ -761,6 +762,7 @@ MonoBehaviour:
   - {fileID: 6348732283610715415, guid: d39fbfa7aa7ae2a4bba069f5a297130b, type: 3}
   - {fileID: 4362603843709051363, guid: 36d2b760dd7bdad458a502a3a7510e7c, type: 3}
   - {fileID: 4103894417692614153, guid: 11e813c1137710c419f393a16d912c1b, type: 3}
+  lilipad: {fileID: 5926899646847146900, guid: a1d4331e070dcaa40bc6ec919c7addba, type: 3}
 --- !u!4 &886082294
 Transform:
   m_ObjectHideFlags: 0
@@ -866,7 +868,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9, y: 1.2, z: 0.9}
+  m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &919903674
 MeshRenderer:

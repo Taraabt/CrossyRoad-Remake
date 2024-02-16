@@ -16,7 +16,7 @@ public class CarGenerator : MonoBehaviour{
         remainingTime -= Time.deltaTime;
         if (remainingTime<=0){
             GameObject c;
-            remainingTime = 4f;
+            remainingTime = Params.Instance.CarTimer;
             c=Instantiate(car[random],transform.position,Quaternion.identity);
             c.transform.right = transform.right;
         }
