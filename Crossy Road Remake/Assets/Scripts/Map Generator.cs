@@ -56,7 +56,7 @@ public class MapGenerator : MonoBehaviour{
     }
 
     void CreateLilipad(Vector3 position){
-        int nObstacle = Random.Range(0, 2);
+        int nObstacle = Random.Range(0, 4);
         for (int i = -4; i < 5; i++){
             List.Add(i);
         }
@@ -74,10 +74,10 @@ public class MapGenerator : MonoBehaviour{
     void CreateTrain(Vector3 pos){
         int random = Random.Range(4, 6);
         if (random == 4){
-            Vector3 spawner1 = new Vector3(pos.x - 5.5f, 0f, pos.z);
+            Vector3 spawner1 = new Vector3(pos.x - 11.5f, 0f, pos.z);
             Instantiate(objGenerator[random], spawner1, Quaternion.identity);
         }else{
-            Vector3 spawner2 = new Vector3(pos.x + 5.5f, 0f, pos.z);
+            Vector3 spawner2 = new Vector3(pos.x + 11.5f, 0f, pos.z);
             Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f, 180f, 0f);
         }
     }

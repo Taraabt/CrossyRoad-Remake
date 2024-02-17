@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
+
     private bool w,a,s,d;
     private bool w1,a1,s1,d1;
-    private bool hitsome,isDead;
-    //[SerializeField]Material material;
+    private bool hitsome,isDead,isGrounded;
     private void Start(){
         isDead = false;
+        isGrounded = true;
     }
 
     void Update(){
+        if (isGrounded==false){
+            isDead = true;
+        }
+
         RaycastHit hit;
-
-
-
-        //Color customColor = new Color(1f, 1f, 1f, 0f);
-        //material.SetColor("_Color", customColor);
-
         w =Input.GetKeyUp(KeyCode.W);
         s = Input.GetKeyUp(KeyCode.S);
         d = Input.GetKeyUp(KeyCode.D);
@@ -28,34 +27,36 @@ public class PlayerMovement : MonoBehaviour{
         d1 = Input.GetKeyDown(KeyCode.D);
         a1 = Input.GetKeyDown(KeyCode.A);
 
-        Vector3 rayCastPos = new Vector3(transform.position.x, transform.position.y +0.5f, transform.position.z);
-
         if (w && isDead==false){
             transform.forward = Vector3.forward;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
+            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f,1<<6);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
+                isGrounded = Physics.Raycast(transform.position, transform.up * -1f, out hit, 1f, 1 << 7);
             }
         }
         if (s && isDead == false){
             transform.forward = Vector3.back;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
+            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f,1<<6);
             if (hitsome == false){
                 transform.Translate(Vector3.forward);
+                isGrounded = Physics.Raycast(transform.position, transform.up * -1f, out hit, 1f, 1 << 7);
             }
         }
         if (d && isDead == false){
             transform.forward = Vector3.right;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
+            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f,1<<6);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
+                isGrounded = Physics.Raycast(transform.position, transform.up * -1f, out hit, 1f, 1 << 7);
             }
         }
         if (a && isDead == false){
             transform.forward = Vector3.left;
-            hitsome = Physics.Raycast(rayCastPos, transform.forward, out hit, 1f,1<<6);
+            hitsome = Physics.Raycast(transform.position, transform.forward, out hit, 1f,1<<6);
             if (hitsome==false){
                 transform.Translate(Vector3.forward);
+                isGrounded = Physics.Raycast(transform.position, transform.up * -1f, out hit, 1f, 1 << 7);
             }
         }
 
