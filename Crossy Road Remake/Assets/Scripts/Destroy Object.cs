@@ -12,7 +12,7 @@ public class DestroyObject : MonoBehaviour{
         Vector3 boxDimension = new Vector3(11f,3f,1);
         Collider[] toDestroy = Physics.OverlapBox(playerPos, boxDimension);
         for (int i = 0; i < toDestroy.Length; i++){
-            Destroy(toDestroy[i]);
+            //Destroy(toDestroy[i]);
             Destroy(toDestroy[i].gameObject);
         }
 

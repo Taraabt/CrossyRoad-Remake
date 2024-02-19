@@ -41,8 +41,12 @@ public class Params : MonoBehaviour{
     [Header("River")]
     [SerializeField] float logSpeed;
     public float LogSpeed { get { return logSpeed; } }
-    [SerializeField] float logTimer;
-    public float LogTimer { get { return logTimer; } }
+    [SerializeField] float maxLogTimer;
+    public float MaxLogTimer { get { return maxLogTimer; } }
+    [SerializeField] float minLogTimer;
+    public float MinLogTimer { get { return minLogTimer; } }
+
+
 
 
 }

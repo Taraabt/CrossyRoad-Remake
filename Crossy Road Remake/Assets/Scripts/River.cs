@@ -7,18 +7,17 @@ public class River : MonoBehaviour{
     public delegate void Death();
     public static event Death RiverDeath;
 
+    public static void TriggerRiverDeath() { RiverDeath(); }
 
     private void OnTriggerEnter(Collider other){
         RiverDeath();
     }
     void OnEnable(){
         RiverDeath += KillPlayer;
-        CameraMovement.CameraDeath += KillPlayer;
     }
 
     void OnDisable(){
         RiverDeath -= KillPlayer;
-        CameraMovement.CameraDeath -= KillPlayer;
     }
 
     void KillPlayer(){

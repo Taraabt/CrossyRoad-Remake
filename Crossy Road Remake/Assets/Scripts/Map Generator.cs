@@ -10,7 +10,7 @@ public class MapGenerator : MonoBehaviour{
     [SerializeField] GameObject[] ground;
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject[] objGenerator;
-    [SerializeField] GameObject lilipad;
+    [SerializeField] GameObject[] other;
     float maxPos =10.5f;
     float startingLine=5.5f;
     List<int> List = new List<int>();
@@ -44,11 +44,11 @@ public class MapGenerator : MonoBehaviour{
         if (map[mapIndex] == 0){
             CreateGroundObstacle(Instance.transform.position);
        }else if (map[mapIndex] == 2){
-            CreateCar(Instance.transform.position);
+            CreateCar(Instance.transform);
        }else if(map[mapIndex] == 1){
-            CreateLog(Instance.transform.position);
+            CreateLog(Instance.transform);
        }else if (map[mapIndex] == 3){
-            CreateTrain(Instance.transform.position);
+            CreateTrain(Instance.transform);
        }else{
             CreateLilipad(Instance.transform.position);
        }
@@ -66,40 +66,45 @@ public class MapGenerator : MonoBehaviour{
             int rNumber = List[rIndex];
             Vector3 pos = new Vector3(rNumber, -0.1f, position.z);
             List.Remove(rNumber);
-            Instantiate(lilipad, pos, Quaternion.identity);
+            Instantiate(other[0], pos, Quaternion.identity);
         }
         List.Clear();
     }
 
-    void CreateTrain(Vector3 pos){
+    void CreateTrain(Transform t){
+        Vector3 pos=t.position;
         int random = Random.Range(4, 6);
         if (random == 4){
             Vector3 spawner1 = new Vector3(pos.x - 11.5f, 0f, pos.z);
-            Instantiate(objGenerator[random], spawner1, Quaternion.identity);
+            Instantiate(other[1], pos, Quaternion.identity,t);
+            Instantiate(objGenerator[random], spawner1, Quaternion.identity,t);
         }else{
             Vector3 spawner2 = new Vector3(pos.x + 11.5f, 0f, pos.z);
-            Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f, 180f, 0f);
+            Instantiate(other[1], pos, Quaternion.identity,t);
+            Instantiate(objGenerator[random], spawner2, Quaternion.identity,t).transform.Rotate(0f, 180f, 0f);
         }
     }
 
-    void CreateLog(Vector3 pos){
+    void CreateLog(Transform t){
+        Vector3 pos=t.position;
         int random = Random.Range(2, 4);
         if (random == 2){
             Vector3 spawner1 = new Vector3(pos.x - 5.5f, 0f, pos.z);
-            Instantiate(objGenerator[random], spawner1, Quaternion.identity);
+            Instantiate(objGenerator[random], spawner1, Quaternion.identity,t);
         }else{
             Vector3 spawner2 = new Vector3(pos.x + 5.5f, 0f, pos.z);
-            Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f, 180f, 0f);
+            Instantiate(objGenerator[random], spawner2, Quaternion.identity,t).transform.Rotate(0f, 180f, 0f);
         }
     }
-    void CreateCar(Vector3 position){
+    void CreateCar(Transform t){
+        Vector3 position = t.position;
         int random=Random.Range(0, 2);
         if (random == 0){
             Vector3 spawner1 = new Vector3(position.x - 5.5f, 0f, position.z);
-            Instantiate(objGenerator[random], spawner1,Quaternion.identity);        
+            Instantiate(objGenerator[random], spawner1,Quaternion.identity,t);        
         }else{
             Vector3 spawner2 = new Vector3(position.x + 5.5f, 0f, position.z);
-            Instantiate(objGenerator[random], spawner2, Quaternion.identity).transform.Rotate(0f,180f,0f);
+            Instantiate(objGenerator[random], spawner2, Quaternion.identity,t).transform.Rotate(0f,180f,0f);
         }
     }
 

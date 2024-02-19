@@ -6,9 +6,9 @@ using UnityEngine;
 public class MoveLog : MonoBehaviour{
 
     bool hasPlayer=false;
-    bool onlog = false;
     GameObject player;
     BoxCollider collider;
+
 
     private void Awake(){
         player = GameObject.Find("Chicken");
@@ -20,40 +20,56 @@ public class MoveLog : MonoBehaviour{
             Destroy(gameObject);
         }else if (hasPlayer){
             player.transform.SetParent(transform);
+
         }
     }
     private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject==player){
+        if (collision.gameObject == player)
+        {
             hasPlayer = true;
-                Vector3 pos = new Vector3(transform.position.x, 0f, player.transform.position.z);
-                if (collider.size.x == 1){
-                    player.transform.position = pos;
-                }else if (collider.size.x == 2){
-                    if (player.transform.position.x - pos.x < -0.25f){
-                        pos.x -= 0.5f;
-                        player.transform.position = pos;
-                    }else{
-                        pos.x += 0.5f;
-                        player.transform.position = pos;
-                    }
-                }else if (collider.size.x == 3){
-                    if (player.transform.position.x - pos.x < -0.5){
-                        pos.x -= 1f;
-                        player.transform.position = pos;
-                    }else if (player.transform.position.x - pos.x > 0.5f){
-                        pos.x += 1f;
-                        player.transform.position = pos;
-                    }else{
-                        player.transform.position = pos;
-                    }
-                }          
+            Vector3 pos = new Vector3(transform.position.x, 0f, player.transform.position.z);
+            if (collider.size.x == 1f)
+            {
+                player.transform.position = pos;
             }
+            else if (collider.size.x ==2f)
+            {
+                if (player.transform.position.x - pos.x < -0.25f)
+                {
+                    pos.x -= 0.5f;
+                    player.transform.position = pos;
+
+                }
+                else
+                {
+                    pos.x += 0.5f;
+                    player.transform.position = pos;
+                }
+            }
+            else if (collider.size.x == 3f)
+            {
+                if (player.transform.position.x - pos.x < -0.5)
+                {
+                    pos.x -= 1f;
+                    player.transform.position = pos;
+                }
+                else if (player.transform.position.x - pos.x > 0.5f)
+                {
+                    pos.x += 1f;
+                    player.transform.position = pos;
+                }
+                else
+                {
+                    player.transform.position = pos;
+                }
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision){
         hasPlayer = false;
+        player.GetComponent<PlayerMovement>().OnLogExit();
         player.transform.SetParent(null);
         Debug.Log("exit");
-
     }
 }

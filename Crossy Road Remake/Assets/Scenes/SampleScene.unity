@@ -384,14 +384,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 1
   followPlayerSpeed: 0.5
-  dstncB4Die: 3
-  dstncB4FllwPlayer: 5
+  dstncB4Die: 1
+  dstncB4FllwPlayer: 6
   carSpeed: 1
   carTimer: 5
   trainSpeed: 7
   trainTimer: 10
   logSpeed: 1.5
-  logTimer: 3
+  maxLogTimer: 2
+  minLogTimer: 4
 --- !u!4 &272107916
 Transform:
   m_ObjectHideFlags: 0
@@ -492,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 452484308}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -511,6 +512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f306e48e50de3944ab38bef4e1d0be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrounded: 0
+  isDead: 0
+  PauseMenu: {fileID: 2103938324}
 --- !u!65 &452484312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -812,7 +816,9 @@ MonoBehaviour:
   - {fileID: 6348732283610715415, guid: d39fbfa7aa7ae2a4bba069f5a297130b, type: 3}
   - {fileID: 4362603843709051363, guid: 36d2b760dd7bdad458a502a3a7510e7c, type: 3}
   - {fileID: 4103894417692614153, guid: 11e813c1137710c419f393a16d912c1b, type: 3}
-  lilipad: {fileID: 5926899646847146900, guid: a1d4331e070dcaa40bc6ec919c7addba, type: 3}
+  other:
+  - {fileID: 5926899646847146900, guid: a1d4331e070dcaa40bc6ec919c7addba, type: 3}
+  - {fileID: 2608587227610821770, guid: 6b2c0c11d88a5a54cb36de975d8b4624, type: 3}
 --- !u!4 &886082294
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7684d8662ba8e47b356c74e13811a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 2103938324}
+  player: {fileID: 452484310}
 --- !u!1 &1025463816
 GameObject:
   m_ObjectHideFlags: 0

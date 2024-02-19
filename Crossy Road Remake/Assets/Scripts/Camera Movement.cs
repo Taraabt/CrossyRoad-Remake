@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour{
 
+    public PlayerMovement player;
     public delegate void Death();
     public static event Death CameraDeath;
-    public Canvas PauseMenu;
-    bool isDead=false;
+
+    bool isDead=>player.isDead;
 
     private void Update(){
-        GameObject player = GameObject.Find("Chicken");
         if(transform.position.z-Params.Instance.DstncB4Die>player.transform.position.z){
             CameraDeath();
         }else if(player.transform.position.z>=transform.position.z+Params.Instance.DstncB4FllwPlayer &&isDead==false){
@@ -23,23 +23,16 @@ public class CameraMovement : MonoBehaviour{
     }
 
     void OnEnable(){
-        MoveTrain.TrainDeath += KillPlayer;
         CameraDeath += KillPlayer;
-        River.RiverDeath += KillPlayer;
-        MoveCar.VeichleDeath += KillPlayer;
     }
 
     void OnDisable(){
-        MoveTrain.TrainDeath -= KillPlayer;
         CameraDeath -= KillPlayer;
-        River.RiverDeath -= KillPlayer;
-        MoveCar.VeichleDeath -= KillPlayer;
     }
 
     void KillPlayer(){
-        isDead = true;
-        transform.Translate(Vector3.zero);
-        PauseMenu.gameObject.SetActive(true);
+        //aquila
+        //transform.Translate(Vector3.zero);
     }
 
 
