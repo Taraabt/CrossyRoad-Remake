@@ -134,7 +134,7 @@ public class MapGenerator : MonoBehaviour{
     }
 
     void Update(){
-        GameObject player = GameObject.Find("Chicken");
+        GameObject player = GameObject.Find("Player");
         if(player.transform.position.z +startingLine >= maxPos){
             CreateLine(maxPos);
             maxPos++;

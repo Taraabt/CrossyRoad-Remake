@@ -11,7 +11,7 @@ public class MoveLog : MonoBehaviour{
 
 
     private void Awake(){
-        player = GameObject.Find("Chicken");
+        player = GameObject.Find("Player");
         collider = this.GetComponent<BoxCollider>();
     }
     void Update(){
