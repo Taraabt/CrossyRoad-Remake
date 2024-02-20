@@ -5088,10 +5088,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7212577512509799590, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15133bd7b9206914a9edd2f67b424d45, type: 2}
+    - target: {fileID: -4588394638068358069, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44f7c70f68564894aabf636bb835930e, type: 2}
+    - target: {fileID: -3242140652373671283, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9801ef70257c78447973b19adcfb1ff1, type: 2}
     - target: {fileID: 919132149155446097, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
       propertyPath: m_Name
       value: Vagone
       objectReference: {fileID: 0}
+    - target: {fileID: 2069814715954657100, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9801ef70257c78447973b19adcfb1ff1, type: 2}
+    - target: {fileID: 5232165181278036294, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9801ef70257c78447973b19adcfb1ff1, type: 2}
+    - target: {fileID: 6862620352409672277, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76dadbefcf0dbfa4f8217330e1875309, type: 2}
+    - target: {fileID: 7972298113247587458, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9801ef70257c78447973b19adcfb1ff1, type: 2}
+    - target: {fileID: 8025451163869010422, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44f7c70f68564894aabf636bb835930e, type: 2}
+    - target: {fileID: 8461831450423212305, guid: 76f47739f1431d945a4e78dc3387c06b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44f7c70f68564894aabf636bb835930e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5874,6 +5910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2553480967521224382, guid: 4f8e53e07ed6c484ab0e72d63367d0a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c7ca5be9a1e96249a8ea475bfb35204, type: 2}
     - target: {fileID: 919132149155446097, guid: 4f8e53e07ed6c484ab0e72d63367d0a0, type: 3}
       propertyPath: m_Name
       value: Treno
