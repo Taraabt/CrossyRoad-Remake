@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour{
     private bool hitsome;
     public bool isGrounded,isDead;
     public TMP_Text textMeshPro;
+
     Animator animator;
 
     private void Awake()
@@ -34,14 +35,6 @@ public class PlayerMovement : MonoBehaviour{
         textMeshPro.text = "Score:" + score;
         isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
-        if (isGrounded == false){
-            //EditorApplication.isPaused = true;
-        }
-
-        //animator.SetBool("Moving", false);
-
-
-
         w = Input.GetKeyUp(KeyCode.W);
         s = Input.GetKeyUp(KeyCode.S);
         d = Input.GetKeyUp(KeyCode.D);
@@ -162,7 +155,6 @@ public class PlayerMovement : MonoBehaviour{
             transform.localScale += Vector3.one * 0.01f;
             yield return null;
         }
-
     }
 
 
