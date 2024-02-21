@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,7 +12,13 @@ public class PlayerMovement : MonoBehaviour{
     private bool w1,a1,s1,d1;
     private bool hitsome;
     public bool isGrounded,isDead;
+    public TMP_Text textMeshPro;
+    Animator animator;
 
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     public Canvas PauseMenu;
     private void Start(){
         isDead = false;
@@ -19,17 +27,21 @@ public class PlayerMovement : MonoBehaviour{
 
     void Update()
     {
-        RaycastHit hit;
-        isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, out hit, 1f, 1 << 7);
+        string score;
+        float score2 = transform.position.z + 1.5f;
+        score = score2.ToString();
+        Debug.Log(score);
+        textMeshPro.text = "Score:" + score;
+        isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
-        if (isGrounded == false)
-        {
+        if (isGrounded == false){
             //EditorApplication.isPaused = true;
         }
 
+        //animator.SetBool("Moving", false);
 
 
-        
+
         w = Input.GetKeyUp(KeyCode.W);
         s = Input.GetKeyUp(KeyCode.S);
         d = Input.GetKeyUp(KeyCode.D);
@@ -44,7 +56,8 @@ public class PlayerMovement : MonoBehaviour{
             transform.forward = Vector3.forward;
             hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
             if (hitsome == false){
-                transform.Translate(Vector3.forward);               
+                StartCoroutine(DeSquish());
+                transform.Translate(Vector3.forward);
             }
         }
         if (s && !isDead && isGrounded)
@@ -53,6 +66,7 @@ public class PlayerMovement : MonoBehaviour{
             hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
             if (hitsome == false)
             {
+                StartCoroutine(DeSquish());
                 transform.Translate(Vector3.forward);
             }
         }
@@ -62,8 +76,9 @@ public class PlayerMovement : MonoBehaviour{
                 hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
                 if (hitsome == false)
                 {
-                    transform.Translate(Vector3.forward);
-                }
+                StartCoroutine(DeSquish());
+                transform.Translate(Vector3.forward);
+            }
             }
             if (a && !isDead && isGrounded)
             {
@@ -71,25 +86,30 @@ public class PlayerMovement : MonoBehaviour{
                 hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
                 if (hitsome == false)
                 {
-                    transform.Translate(Vector3.forward);
-                }
+                StartCoroutine(DeSquish());
+                transform.Translate(Vector3.forward);
+            }
             }
 
             if (w1 && isDead == false)
             {
+                StartCoroutine(Squish());
                 transform.forward = Vector3.forward;
             }
             if (s1 && isDead == false)
             {
-                transform.forward = Vector3.back;
+            StartCoroutine(Squish());
+            transform.forward = Vector3.back;
             }
             if (d1 && isDead == false)
             {
-                transform.forward = Vector3.right;
+            StartCoroutine(Squish());
+            transform.forward = Vector3.right;
             }
             if (a && isDead == false)
             {
-                transform.forward = Vector3.left;
+            StartCoroutine(Squish());
+            transform.forward = Vector3.left;
             }
         }
     void OnEnable(){
@@ -123,6 +143,28 @@ public class PlayerMovement : MonoBehaviour{
 
 
     }
+
+    public IEnumerator Squish()
+    {
+        Vector3 targetScale = Vector3.one*0.8f;
+        while (transform.localScale.x>=targetScale.x) {
+            transform.localScale -= Vector3.one * 0.01f;
+            yield return null;
+        }
+
+    }
+
+    public IEnumerator DeSquish()
+    {
+        Vector3 targetScale = Vector3.one ;
+        while (transform.localScale.x < targetScale.x)
+        {
+            transform.localScale += Vector3.one * 0.01f;
+            yield return null;
+        }
+
+    }
+
 
 
 }
