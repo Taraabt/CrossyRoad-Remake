@@ -7,6 +7,7 @@ public class TrainGenerator : MonoBehaviour{
     [SerializeField] GameObject train;
     float remainingTime =  0f;
 
+
     void Update(){
         remainingTime -= Time.deltaTime;
         if (remainingTime <= 0)

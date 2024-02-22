@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour{
             hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
             if (hitsome == false){
                 StartCoroutine(DeSquish());
+                animator.SetBool("Moving", true);
                 transform.Translate(Vector3.forward);
             }
         }
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour{
             if (hitsome == false)
             {
                 StartCoroutine(DeSquish());
+                animator.SetBool("Moving",true);
                 transform.Translate(Vector3.forward);
             }
         }
@@ -70,6 +72,7 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
+                animator.SetBool("Moving", true);
                 transform.Translate(Vector3.forward);
             }
             }
@@ -80,8 +83,9 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
+                animator.SetBool("Moving", true);
                 transform.Translate(Vector3.forward);
-            }
+                }
             }
 
             if (w1 && isDead == false)

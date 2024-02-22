@@ -7,7 +7,7 @@ public class LightManager : MonoBehaviour
 {
 
     private float timer;
-    Material material;
+    [SerializeField]Material[] material;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,8 @@ public class LightManager : MonoBehaviour
     {
         
         timer -= Time.deltaTime;
-        if(timer<=2) {
-        
+        if(timer<=Params.Instance.TimeBeforeTrain) {
+            this.GetComponentInChildren<Renderer>().material = material[1];
         }
 
 

@@ -9,18 +9,16 @@ public class MoveLog : MonoBehaviour{
     GameObject player;
     BoxCollider collider;
 
-
     private void Awake(){
         player = GameObject.Find("Player");
         collider = this.GetComponent<BoxCollider>();
     }
     void Update(){
-        transform.Translate(Vector3.right * Time.deltaTime * Params.Instance.LogSpeed, Space.Self);
+        transform.Translate(Vector3.right * Time.deltaTime * Params.Instance.MaxLogSpeed, Space.Self);
         if (transform.position.x >= 10f || transform.position.x <= -10f){
             Destroy(gameObject);
         }else if (hasPlayer){
             player.transform.SetParent(transform);
-
         }
     }
     private void OnCollisionEnter(Collision collision){

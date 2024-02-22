@@ -8,7 +8,7 @@ public class MoveCar : MonoBehaviour{
     public static event Death VeichleDeath;
 
     void Update(){
-        transform.Translate(Vector3.right * Time.deltaTime * Params.Instance.CarSpeed, Space.Self);
+        transform.Translate(Vector3.right* Time.deltaTime * Params.Instance.CarSpeed, Space.Self);
         if (transform.position.x >= 10f || transform.position.x <= -10f){
             Destroy(gameObject);
         }
