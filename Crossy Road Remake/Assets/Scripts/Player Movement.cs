@@ -50,8 +50,9 @@ public class PlayerMovement : MonoBehaviour{
             hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
             if (hitsome == false){
                 StartCoroutine(DeSquish());
-                animator.SetBool("Moving", true);
-                transform.Translate(Vector3.forward); 
+                animator.SetTrigger("Moving");
+                //StartCoroutine(MoveOverSeconds(this.gameObject, Vector3.forward, 0.917f/3));
+                transform.Translate(Vector3.forward);
             }
         }
         if (s && !isDead && isGrounded)
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour{
             if (hitsome == false)
             {
                 StartCoroutine(DeSquish());
-                animator.SetBool("Moving",true);
+                animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
             }
         }
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
-                animator.SetBool("Moving", true);
+                animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
             }
             }
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
-                animator.SetBool("Moving", true);
+                animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
                 }
             }
@@ -161,6 +162,19 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
+    
+    public IEnumerator MoveOverSeconds (GameObject objectToMove, Vector3 offset, float seconds)
+    {
+        float elapsedTime = 0;
+        Vector3 startingPos = objectToMove.transform.position;
+        while (elapsedTime < seconds)
+        {
+            objectToMove.transform.position = Vector3.Lerp(startingPos, startingPos+offset, (elapsedTime / seconds));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        objectToMove.transform.position = startingPos+offset;
+    }
 
 
 }

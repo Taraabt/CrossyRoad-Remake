@@ -65,8 +65,8 @@ ModelImporter:
       name: jump_def
       takeName: Scene
       internalID: -1609281748187839663
-      firstFrame: 20
-      lastFrame: 54
+      firstFrame: 18
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
