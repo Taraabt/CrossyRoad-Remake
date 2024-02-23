@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfSection: 6
-  cameraSpeed: 1
+  cameraSpeed: 0.1
   followPlayerSpeed: 0.5
   dstncB4Die: 1
   dstncB4FllwPlayer: 6

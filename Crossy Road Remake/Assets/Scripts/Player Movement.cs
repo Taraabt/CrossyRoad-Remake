@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour{
             hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
             if (hitsome == false){
                 StartCoroutine(DeSquish());
-                animator.SetTrigger("Moving");
-                //StartCoroutine(MoveOverSeconds(this.gameObject, Vector3.forward, 0.917f/3));
+                //animator.SetTrigger("Moving");
+                //StartCoroutine(MoveOverSeconds(transform.GetChild(0).gameObject, Vector3.forward, 0.625f));
                 transform.Translate(Vector3.forward);
             }
         }
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour{
             if (hitsome == false)
             {
                 StartCoroutine(DeSquish());
-                animator.SetTrigger("Moving");
+                //animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
             }
         }
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
-                animator.SetTrigger("Moving");
+                //animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
             }
             }
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour{
                 if (hitsome == false)
                 {
                 StartCoroutine(DeSquish());
-                animator.SetTrigger("Moving");
+                //animator.SetTrigger("Moving");
                 transform.Translate(Vector3.forward);
                 }
             }
