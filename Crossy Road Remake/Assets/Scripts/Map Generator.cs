@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Mime;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,18 +16,17 @@ public class MapGenerator : MonoBehaviour{
     float startingLine=5.5f;
     List<int> List = new List<int>();
 
-    private string filePath;
     private int mapIndex;
     int[] map =new int[400];
 
 
     public void ReadFile(){
         string fileContent="";
-        filePath = Path.Combine(Application.dataPath, "map.txt");
-        if (File.Exists(filePath)){
-            fileContent = File.ReadAllText(filePath);
+        TextAsset textAsset = Resources.Load<TextAsset>("map");
+        if (textAsset != null){
+            fileContent = textAsset.text;
         }else{
-            Debug.LogError("Il file non esiste: " + filePath);
+            Debug.LogError("Il file map non esiste");
         }
         string[] map=fileContent.Split('\r');
         for (int i = 0; i < this.map.Length; i++){
