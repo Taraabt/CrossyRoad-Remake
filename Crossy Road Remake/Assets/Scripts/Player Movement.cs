@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour{
         string score;
         float score2 = transform.position.z + 1.5f;
         score = score2.ToString();
-        Debug.Log(score);
         textMeshPro.text = "Score:" + score;
         isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
@@ -44,6 +43,7 @@ public class PlayerMovement : MonoBehaviour{
         d1 = Input.GetKeyDown(KeyCode.D);
         a1 = Input.GetKeyDown(KeyCode.A);
 
+
         Vector3 raycastPos=new Vector3(Mathf.RoundToInt(transform.position.x), transform.position.y, transform.position.z);
         if (w && !isDead && isGrounded){
             transform.forward = Vector3.forward;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour{
             if (hitsome == false){
                 StartCoroutine(DeSquish());
                 animator.SetBool("Moving", true);
-                transform.Translate(Vector3.forward);
+                transform.Translate(Vector3.forward); 
             }
         }
         if (s && !isDead && isGrounded)

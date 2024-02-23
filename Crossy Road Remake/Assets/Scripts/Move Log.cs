@@ -8,13 +8,15 @@ public class MoveLog : MonoBehaviour{
     bool hasPlayer=false;
     GameObject player;
     BoxCollider collider;
+    float logspeed;
 
     private void Awake(){
         player = GameObject.Find("Player");
         collider = this.GetComponent<BoxCollider>();
     }
     void Update(){
-        transform.Translate(Vector3.right * Time.deltaTime * Params.Instance.MaxLogSpeed, Space.Self);
+        logspeed=GetComponentInParent<LogGenerator>().logspeed;
+        transform.Translate(Vector3.right * Time.deltaTime * logspeed, Space.Self);
         if (transform.position.x >= 10f || transform.position.x <= -10f){
             Destroy(gameObject);
         }else if (hasPlayer){

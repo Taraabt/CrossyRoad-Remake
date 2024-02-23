@@ -65,8 +65,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.90131456, y: 0.82522666, z: 0.9999507}
-  m_Center: {x: -0.13146648, y: 0.41261333, z: 0.1991001}
+  m_Size: {x: 0.9721794, y: 0.7964141, z: 0.86214596}
+  m_Center: {x: -0.19768375, y: 0.39820704, z: -0.14308438}
 --- !u!1001 &1456108294211349750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,10 +115,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5357977751872279479, guid: 76ef44481b38aaa4eb9bcf3580bb2af8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ca8e15369329e64da19414c8a6d2a59, type: 2}
     - target: {fileID: 919132149155446097, guid: 76ef44481b38aaa4eb9bcf3580bb2af8, type: 3}
       propertyPath: m_Name
       value: assetAspiratore
       objectReference: {fileID: 0}
+    - target: {fileID: 3682636273236626382, guid: 76ef44481b38aaa4eb9bcf3580bb2af8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01579453c5e8a544697727c61d958599, type: 2}
+    - target: {fileID: 4299642612395625917, guid: 76ef44481b38aaa4eb9bcf3580bb2af8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a972d5511fc7afd49a749465c078b3cb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

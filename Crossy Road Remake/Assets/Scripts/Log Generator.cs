@@ -7,11 +7,12 @@ public class LogGenerator : MonoBehaviour{
     [SerializeField] GameObject[] log;
     float remainingTime = 0f;
     float randomTime;
-    public float logspeed { get; set; }
+    public float logspeed;
 
     private void Start(){
         randomTime = Random.Range(Params.Instance.MinLogTimer, Params.Instance.MaxLogTimer);
         Debug.Log(randomTime);
+        logspeed = Random.Range(Params.Instance.MinLogSpeed, Params.Instance.MinLogSpeed);
     }
     void Update(){
         int logLength;
@@ -22,6 +23,7 @@ public class LogGenerator : MonoBehaviour{
             GameObject c;
             remainingTime = randomTime;
             c = Instantiate(log[logLength], pos, Quaternion.identity);
+            c.transform.SetParent(transform);
             c.transform.right = transform.right;
         }
     }

@@ -15,6 +15,9 @@ public class Params : MonoBehaviour{
     }
 
     [Header ("Map")]
+    [SerializeField] float numberOfSection;
+    public float NumberOfSection { get { return numberOfSection; } }
+
 
     [Header ("Camera")]
     [SerializeField] float cameraSpeed;
