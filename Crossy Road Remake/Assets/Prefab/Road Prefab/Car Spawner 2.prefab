@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car:
-  - {fileID: 7080601995062971066, guid: 9e879aa1b6d02a84fb762b12e867879d, type: 3}
   - {fileID: 2119666431005319061, guid: 25471b77c0333c3438e4ab1d8fced7ba, type: 3}
   - {fileID: 599604020700212858, guid: b90ed59b12c296f43a3f7eeeb9bdc0d2, type: 3}
