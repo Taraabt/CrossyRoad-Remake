@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour{
     private bool w,a,s,d;
     private bool w1,a1,s1,d1;
     private bool hitsome;
-    public bool isGrounded,isDead;
+    public bool isGrounded, isDead;
     public TMP_Text textMeshPro;
 
     Animator animator;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour{
             if (hitsome == false){
                 StartCoroutine(DeSquish());
                 //animator.SetTrigger("Moving");
-                //StartCoroutine(MoveOverSeconds(transform.GetChild(0).gameObject, Vector3.forward, 0.625f));
+                //StartCoroutine(MoveOverSeconds(transform.gameObject, Vector3.forward, 0.917f));
                 transform.Translate(Vector3.forward);
             }
         }
