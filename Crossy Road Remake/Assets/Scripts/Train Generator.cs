@@ -5,9 +5,12 @@ using UnityEngine;
 public class TrainGenerator : MonoBehaviour{
 
     [SerializeField] GameObject train;
-    float remainingTime =  0f;
+    public float remainingTime;
 
-
+    private void Start()
+    {
+        remainingTime = Random.Range(0f, Params.Instance.TrainTimer);
+    }
     void Update(){
         remainingTime -= Time.deltaTime;
         if (remainingTime <= 0)

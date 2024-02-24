@@ -5,13 +5,11 @@ using UnityEngine;
 public class LogGenerator : MonoBehaviour{
 
     [SerializeField] GameObject[] log;
-    float remainingTime = 0f;
-    public float randomTime;
+    float remainingTime;
     public float logspeed;
 
     private void Start(){
-        randomTime = Random.Range(Params.Instance.MinLogTimer, Params.Instance.MaxLogTimer);
-        Debug.Log(randomTime);
+        remainingTime = Random.Range(Params.Instance.MinLogTimer, Params.Instance.MaxLogTimer);
     }
     private void Awake()
     {

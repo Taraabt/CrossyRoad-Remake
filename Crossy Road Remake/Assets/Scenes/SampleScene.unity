@@ -385,15 +385,15 @@ MonoBehaviour:
   numberOfSection: 6
   cameraSpeed: 1
   followPlayerSpeed: 0.5
-  dstncB4Die: 1
+  dstncB4Die: 2
   dstncB4FllwPlayer: 6
-  mulettoSpeed: 0.5
+  mulettoSpeed: 1.5
   aspiratoreSpeed: 2
-  minCarTimer: 1
-  maxCarTimer: 3
+  minCarTimer: 2
+  maxCarTimer: 4
   trainSpeed: 7
   trainTimer: 10
-  timeBeforeTrain: 0
+  timeBeforeTrain: 2
   maxLogSpeed: 3
   minLogSpeed: 1
   maxLogTimer: 3

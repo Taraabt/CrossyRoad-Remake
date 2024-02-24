@@ -12,7 +12,7 @@ public class MapGenerator : MonoBehaviour{
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject[] objGenerator;
     [SerializeField] GameObject[] other;
-    float maxPos =13.5f;
+    float maxPos =15.5f;
     float startingLine=5.5f;
     List<int> List = new List<int>();
 
@@ -135,7 +135,7 @@ public class MapGenerator : MonoBehaviour{
 
     void Update(){
         GameObject player = GameObject.Find("Player");
-        if(player.transform.position.z + 10.5f>= maxPos){
+        if(player.transform.position.z + 12.5f>= maxPos){
             CreateLine(maxPos);
             maxPos++;
         }
