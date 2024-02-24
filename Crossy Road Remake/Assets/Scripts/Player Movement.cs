@@ -113,6 +113,7 @@ public class PlayerMovement : MonoBehaviour{
     void OnEnable(){
         CameraMovement.CameraDeath += StopMovement;
         MoveCar.VeichleDeath += StopMovement;
+        MoveCar2.MulettoDeath += StopMovement;
         River.RiverDeath += StopMovement;
         MoveTrain.TrainDeath += StopMovement;
     }
@@ -120,6 +121,7 @@ public class PlayerMovement : MonoBehaviour{
     void OnDisable(){
         MoveTrain.TrainDeath -= StopMovement;
         River.RiverDeath -= StopMovement;
+        MoveCar2.MulettoDeath -= StopMovement;
         CameraMovement.CameraDeath -= StopMovement;
         MoveCar.VeichleDeath -= StopMovement;
     }

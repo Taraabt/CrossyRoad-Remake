@@ -387,8 +387,10 @@ MonoBehaviour:
   followPlayerSpeed: 0.5
   dstncB4Die: 1
   dstncB4FllwPlayer: 6
-  carSpeed: 1
-  carTimer: 5
+  mulettoSpeed: 0.5
+  aspiratoreSpeed: 2
+  minCarTimer: 1
+  maxCarTimer: 3
   trainSpeed: 7
   trainTimer: 10
   timeBeforeTrain: 0
@@ -396,7 +398,7 @@ MonoBehaviour:
   minLogSpeed: 1
   maxLogTimer: 3
   minLogTimer: 5
-  catSpeed: 1
+  catSpeed: 15
 --- !u!4 &272107916
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,7 +1194,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

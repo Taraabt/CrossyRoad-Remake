@@ -30,10 +30,14 @@ public class Params : MonoBehaviour{
     public float DstncB4FllwPlayer { get { return dstncB4FllwPlayer; } }
 
     [Header("Car")]
-    [SerializeField] float carSpeed;
-    public float CarSpeed { get { return carSpeed; } }
-    [SerializeField] float carTimer;
-    public float CarTimer { get { return carTimer; } }
+    [SerializeField] float mulettoSpeed;
+    public float MulettoSpeed { get { return mulettoSpeed; } }
+    [SerializeField] float aspiratoreSpeed;
+    public float AspiratoreSpeed { get { return aspiratoreSpeed; } }
+    [SerializeField] float minCarTimer;
+    public float MinCarTimer { get { return minCarTimer; } }
+    [SerializeField] float maxCarTimer;
+    public float MaxCarTimer { get { return maxCarTimer; } }
 
     [Header("Train")]
     [SerializeField] float trainSpeed;

@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour{
     public delegate void Death();
     public static event Death CameraDeath;
 
-    bool isDead=false;
+    bool isDead=>player.isDead;
 
     private void Update(){
         Vector3 pos = new Vector3(0, 0, player.transform.position.z);
@@ -34,7 +34,6 @@ public class CameraMovement : MonoBehaviour{
     }
 
     void KillPlayer(){
-        isDead = true;
         Vector3 pos =new Vector3(player.transform.position.x,player.transform.position.y+1,player.transform.position.z+14);
         Instantiate(cat,pos ,Quaternion.Euler(0f,180f,0f));
     }

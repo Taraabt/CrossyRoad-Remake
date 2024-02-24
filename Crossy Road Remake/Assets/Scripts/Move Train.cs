@@ -20,12 +20,10 @@ public class MoveTrain : MonoBehaviour{
 
     void OnEnable(){
         TrainDeath += KillPlayer;
-        CameraMovement.CameraDeath += KillPlayer;
     }
 
     void OnDisable(){
         TrainDeath -= KillPlayer;
-        CameraMovement.CameraDeath -= KillPlayer;
     }
 
     void KillPlayer(){
