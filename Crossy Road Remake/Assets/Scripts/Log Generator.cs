@@ -9,7 +9,7 @@ public class LogGenerator : MonoBehaviour{
     public float logspeed;
 
     private void Start(){
-        remainingTime = Random.Range(Params.Instance.MinLogTimer, Params.Instance.MaxLogTimer);
+        remainingTime = 0f;
     }
     private void Awake()
     {

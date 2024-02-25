@@ -64,7 +64,7 @@ public class MapGenerator : MonoBehaviour{
         for (int i = 0; i < nObstacle; i++){
             int rIndex = Random.Range(0, List.Count);
             int rNumber = List[rIndex];
-            Vector3 pos = new Vector3(rNumber, -0.5f, position.z);
+            Vector3 pos = new Vector3(rNumber, -0.4f, position.z);
             List.Remove(rNumber);
             Instantiate(other[0], pos, Quaternion.identity);
         }

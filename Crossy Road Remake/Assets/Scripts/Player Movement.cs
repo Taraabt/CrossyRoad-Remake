@@ -28,10 +28,12 @@ public class PlayerMovement : MonoBehaviour{
 
     void Update()
     {
-        string score;
-        float score2 = transform.position.z + 1.5f;
-        score = score2.ToString();
-        textMeshPro.text = "Score:" + score;
+        if (isDead==false){
+            string score;
+            float score2 = transform.position.z + 1.5f;
+            score = score2.ToString();
+            textMeshPro.text = "Score:" + score;
+        }
         isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
         w = Input.GetKeyUp(KeyCode.W);

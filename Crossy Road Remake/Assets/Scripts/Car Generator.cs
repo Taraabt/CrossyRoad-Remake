@@ -12,7 +12,7 @@ public class CarGenerator : MonoBehaviour{
 
     void Start(){
         randomTime = Random.Range(Params.Instance.MinCarTimer, Params.Instance.MaxCarTimer);
-        remainingTime = randomTime;
+        remainingTime = 0f;
         random = Random.Range(0, car.Length);
     }
 
