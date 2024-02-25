@@ -40,8 +40,13 @@ public class MapGenerator : MonoBehaviour{
             mapIndex = 0;
         }
         Vector3 newLine = new Vector3(0f, ground[map[mapIndex]].transform.position.y , ground[map[mapIndex]].transform.position.z + i);
+        Vector3 rightLimit= new Vector3(5f, ground[map[mapIndex]].transform.position.y, ground[map[mapIndex]].transform.position.z + i);
+        Vector3 leftLimit = new Vector3(-5f, ground[map[mapIndex]].transform.position.y, ground[map[mapIndex]].transform.position.z + i);
         GameObject Instance=Instantiate(ground[map[mapIndex]], newLine, Quaternion.identity);
+        Instantiate(other[2], rightLimit, Quaternion.identity);
+        Instantiate(other[2], leftLimit, Quaternion.identity);
         if (map[mapIndex] == 0){
+
             CreateGroundObstacle(Instance.transform.position);
        }else if (map[mapIndex] == 2){
             CreateCar(Instance.transform);
@@ -66,7 +71,7 @@ public class MapGenerator : MonoBehaviour{
             int rNumber = List[rIndex];
             Vector3 pos = new Vector3(rNumber, -0.4f, position.z);
             List.Remove(rNumber);
-            Instantiate(other[0], pos, Quaternion.identity);
+            Instantiate(other[0], pos, Quaternion.Euler(0f,-90f,0f));
         }
         List.Clear();
     }

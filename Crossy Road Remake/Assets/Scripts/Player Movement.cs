@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -12,8 +13,10 @@ public class PlayerMovement : MonoBehaviour{
     private bool w1,a1,s1,d1;
     private bool hitsome;
     public bool isGrounded, isDead;
-    public TMP_Text textMeshPro;
+    public TMP_Text text;
+    public TMP_Text highScore;
 
+    int i;
     Animator animator;
 
     private void Awake()
@@ -24,15 +27,36 @@ public class PlayerMovement : MonoBehaviour{
     private void Start(){
         isDead = false;
         isGrounded = true;
+
+        if (PlayerPrefs.HasKey("SavePot")){
+            LoadObject();
+            GenerateObjs();
+        }else{
+            GenerateObjs();
+        }
     }
 
+    private void GenerateObjs()
+    {
+        PlayerPrefs.SetInt("Highscore", i);
+        //
+    }
+    private void LoadObject()
+    {
+        i =PlayerPrefs.GetInt("Highscore");
+        Debug.Log(i);
+    }
     void Update()
     {
         if (isDead==false){
             string score;
-            float score2 = transform.position.z + 1.5f;
-            score = score2.ToString();
-            textMeshPro.text = "Score:" + score;
+            float score2 =(int) transform.position.z+ 0.5f;
+            if (i <= score2)
+            {
+                highScore.text = "Highscore: " + i.ToString();
+            }          
+            score = ((int) score2).ToString();
+            text.text = "Score: " + score;
         }
         isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
@@ -49,7 +73,8 @@ public class PlayerMovement : MonoBehaviour{
         Vector3 raycastPos=new Vector3(Mathf.RoundToInt(transform.position.x), transform.position.y, transform.position.z);
         if (w && !isDead && isGrounded){
             transform.forward = Vector3.forward;
-            hitsome = Physics.Raycast(raycastPos, transform.forward, 1f, 1 << 6);
+            hitsome = Physics.Raycast(raycastPos, transform.forward+Vector3.up *0.5f, 1f, 1 << 6);
+            Debug.DrawRay(raycastPos, transform.forward,  Color.red);
             if (hitsome == false){
                 StartCoroutine(DeSquish());
                 //animator.SetTrigger("Moving");
@@ -131,8 +156,9 @@ public class PlayerMovement : MonoBehaviour{
     public void StopMovement(){
         PauseMenu.gameObject.SetActive(true);
         isDead = true;
-        GetComponent<Rigidbody>().isKinematic=true;
+        GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Collider>().enabled= false;
+
         //this.gameObject.SetActive(false);
     }
 
@@ -166,18 +192,13 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
-    
-    public IEnumerator MoveOverSeconds (GameObject objectToMove, Vector3 offset, float seconds)
+    private void OnCollisionEnter(Collision collision)
     {
-        float elapsedTime = 0;
-        Vector3 startingPos = objectToMove.transform.position;
-        while (elapsedTime < seconds)
+        if (collision.gameObject.tag=="World Limit")
         {
-            objectToMove.transform.position = Vector3.Lerp(startingPos, startingPos+offset, (elapsedTime / seconds));
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            StopMovement();
         }
-        objectToMove.transform.position = startingPos+offset;
+
     }
 
 
