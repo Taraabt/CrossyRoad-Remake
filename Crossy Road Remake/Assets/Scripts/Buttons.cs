@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour{
 
 
-    [SerializeField]Canvas canvas;
+    [SerializeField]Button button1;
+    [SerializeField] Button button2;
     public PlayerMovement player;
     public void SceneReload(){
         SceneManager.LoadScene(1);
@@ -16,7 +17,8 @@ public class Buttons : MonoBehaviour{
     public void StartGame()
     {
         player.CanMove();
-        canvas.gameObject.SetActive(false);
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
     }
 
     public void BackToGame()

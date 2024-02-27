@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa919b04f98965944a1c534c7b77c0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 327862498}
+  button1: {fileID: 1677765532}
+  button2: {fileID: 1994873757}
   player: {fileID: 2020955211}
 --- !u!1 &162592689
 GameObject:
@@ -467,9 +468,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1308972155}
   - {fileID: 1677765531}
   - {fileID: 1994873756}
+  - {fileID: 1308972155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1755,7 +1756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa919b04f98965944a1c534c7b77c0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &1994873755
 GameObject:
