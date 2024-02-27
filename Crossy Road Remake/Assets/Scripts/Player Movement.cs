@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour{
@@ -14,9 +16,7 @@ public class PlayerMovement : MonoBehaviour{
     private bool hitsome;
     public bool isGrounded, isDead;
     public TMP_Text text;
-    public TMP_Text highScore;
-
-    int i;
+    int currentScen=1;
     Animator animator;
 
     private void Awake()
@@ -25,39 +25,36 @@ public class PlayerMovement : MonoBehaviour{
     }
     public Canvas PauseMenu;
     private void Start(){
-        isDead = false;
-        isGrounded = true;
-
-        if (PlayerPrefs.HasKey("SavePot")){
-            LoadObject();
-            GenerateObjs();
-        }else{
-            GenerateObjs();
+        int y = SceneManager.GetActiveScene().buildIndex;
+        if(y ==1){
+            isDead = false;
         }
+        else
+        {
+            isDead = true;
+        }
+
+        isGrounded = true;
     }
 
-    private void GenerateObjs()
+
+    public void CanMove()
     {
-        PlayerPrefs.SetInt("Highscore", i);
-        //
-    }
-    private void LoadObject()
-    {
-        i =PlayerPrefs.GetInt("Highscore");
-        Debug.Log(i);
+        isDead = false;
     }
     void Update()
     {
+
+        
+
+
         if (isDead==false){
             string score;
-            float score2 =(int) transform.position.z+ 0.5f;
-            if (i <= score2)
-            {
-                highScore.text = "Highscore: " + i.ToString();
-            }          
+            float score2 =(int) transform.position.z+ 0.5f;     
             score = ((int) score2).ToString();
             text.text = "Score: " + score;
         }
+
         isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.up * -0.1f, 1f, 1 << 7);
         Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.up * -1f,Color.red);
         w = Input.GetKeyUp(KeyCode.W);
